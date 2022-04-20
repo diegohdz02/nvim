@@ -404,6 +404,10 @@ snippet cc "subset" w
 \subset 
 endsnippet
 
+snippet {} "set" w
+\left\\{ $1 \right\\} $0
+endsnippet
+
 snippet inn "in " w
 \in 
 endsnippet
@@ -513,6 +517,10 @@ snippet pmat "Pmat" w
 \begin{pmatrix} $1 \end{pmatrix} $0
 endsnippet
 
+snippet vmat "Vmat" w
+\begin{vmatrix} $1 \end{vmatrix} $0
+endsnippet
+
 snippet bmat "Bmat" w
 \begin{bmatrix} $1 \end{bmatrix} $0
 endsnippet
@@ -603,8 +611,8 @@ snippet iff "iff" w
 endsnippet
 
 context "math()"
-snippet == "Equals" Aw
-&= $1 \\\\ $0
+snippet == "Equals" iA
+ &= $1 \\\\ $0
 endsnippet
 
 snippet != "Not Equal" w
@@ -632,8 +640,16 @@ snippet xx "cross" Aw
 \times 
 endsnippet
 
-snippet '(?<!\\)(sin|cos|arccot|cot|csc|ln|log|exp|star|perp|tau|mu|sigma|xi|tan)' "ln" rw
+snippet '(?<!\\)(sin|cos|arccot|cot|csc|ln|log|exp|star|perp|tau|mu|xi|tan)' "ln" rw
 \\`!p snip.rv = match.group(1)`
+endsnippet
+
+snippet sgm "sigma" Aw
+\sigma
+endsnippet
+
+snippet Sgm "Sigma" Aw
+\Sigma
 endsnippet
 
 snippet <! "normal" Aw
@@ -911,8 +927,8 @@ snippet quad "\quad" iA
 endsnippet
 
 context "math()"
-snippet omega "\omega" iA
-\omega 
+snippet omg "\omega" iA
+\omega
 endsnippet
 
 context "math()"
@@ -937,7 +953,7 @@ endsnippet
 
 context "math()"
 snippet ji "\chi" iA
-\chi 
+\chi
 endsnippet
 
 context "math()"
@@ -945,15 +961,14 @@ snippet plt "\therefore" iA
 \therefore
 endsnippet
 
-context "math()"
 snippet alig "aligned"
-\begin{aligned}
-  ${1:${VISUAL}}$0 
-\end{aligned}
+\begin{align${1:*}}
+  ${2:${VISUAL}}$0 
+\end{align$1}
 endsnippet
 
 context "math()"
-snippet oper "aligned" iA
+snippet oper "oper" iA
 \operatorname{$1}$0
 endsnippet
 
@@ -1022,7 +1037,7 @@ endsnippet
 
 priority 99
 context "math()"
-snippet * "^*" iA
+snippet * "^*" w
 ^*
 endsnippet
 
@@ -1047,19 +1062,15 @@ snippet cdo "\cdots" iA
 endsnippet
 
 context "math()"
-snippet ldo "\ldots" iA
-\ldots
-endsnippet
-
-context "math()"
 snippet vdo "\vdots" iA
 \vdots
 endsnippet
 
 context "math()"
-snippet ddot "\ddots"
+snippet ddts "\ddots" iA
 \ddots
 endsnippet
+
 
 context "math()"
 snippet EE "\mathbb{E}"
@@ -1068,26 +1079,31 @@ endsnippet
 
 priority 100
 context "math()"
-snippet int "\int" iA
+snippet int "\int" w
 \int_{$1}^{$2} $3 d{$4} $0 
 endsnippet                  
 
 priority 101
 context "math()"
-snippet iint "\iint" iA
+snippet iint "\iint" w
 \iint_{$1}^{$2} $3 d{$4} $0 
 endsnippet 
 
 priority 102
 context "math()"
-snippet iiint "\iiint" iA
+snippet iiint "\iiint" w
 \iiint_{$1}^{$2} $3 d{$4} $0 
 endsnippet
 
 priority 101
 context "math()"
-snippet oint "\int" iA
+snippet oint "\int" w
 \oint_{$1}^{$2} $3 d{$4} $0 
+endsnippet
+
+context "math()"
+snippet inter "intertext" w
+\intertext{$1} $0
 endsnippet
 
 context "math()"
@@ -1097,7 +1113,17 @@ endsnippet
 
 context "math()"
 snippet yy "&"
-&
+& 
+endsnippet
+
+context "math()"
+snippet det "\operatorname{det}"
+\operatorname{det} 
+endsnippet
+
+context "math()"
+snippet || "\left| \right|"
+\left| $1 \right|$0
 endsnippet
 
 context "math()"
@@ -1147,3 +1173,59 @@ snip.rv = eval('latex(' + match.group(1).replace('\\', '') \
     .replace('}', ')') + ')')
 `
 endsnippet
+
+snippet salto "\vspace{0.5mm}"
+\vspace{2mm}
+
+endsnippet                       
+
+snippet cellcol "\cellcolor"
+\cellcolor{${1:black}!${2:20}}{$3} $0
+endsnippet
+
+snippet rowcol "\rowcolor"
+\rowcolor{${1:black}!${2:20}} $0
+endsnippet
+
+snippet 'crear(.*)' "crea archivo" wr
+`!p
+nombre = match.group(1) + ".txt"
+open(nombre, "w")
+`
+endsnippet
+
+snippet 'xcolor (.*)' "Texto en color" wr
+\textcolor{${1:blue}}{`!p snip.rv = match.group(1)`}$0
+endsnippet
+
+snippet 'bf (.*)' "Texto en negritas" wr
+\bf{`!p snip.rv = match.group(1)`}$0
+endsnippet
+
+snippet lab "\label" 
+\label{$1} $0
+endsnippet
+
+snippet rf "\ref"
+\ref{$1} $0
+endsnippet
+
+snippet eq "equation" 
+\begin{equation${1:*}}
+  $0
+\end{equation$1}
+endsnippet
+
+snippet eqsp "equation" 
+\begin{equation}
+  \begin{split}
+    $0
+  \end{split}
+\end{equation}
+endsnippet  
+
+
+
+
+
+
