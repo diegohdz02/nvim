@@ -165,33 +165,34 @@ snippet confcodigo "Configuracion codigo en latex"
 \lstset{style=mystyle}
 endsnippet
 
-snippet 2fig 
+snippet 2fig   
 \begin{figure}[H]
  \centering
   \subfloat[$1]{
-   \label{$1}
-    \includegraphics[width=0.3\textwidth]{$2}}
-  \subfloat[$3]{
-   \label{$3}
-    \includegraphics[width=0.3\textwidth]{$4}}
-  \subfloat[$5]{
+   \label{$2}
+    \includegraphics[width=0.49\textwidth]{$3}}
+  \subfloat[$4]{
    \label{$5}
+    \includegraphics[width=0.49\textwidth]{$6}}
+		\caption{$10}
+ \label{$11}
+\end{figure} 
 endsnippet
 
 snippet 3fig
 \begin{figure}[H]
  \centering
   \subfloat[$1]{
-   \label{$1}
-    \includegraphics[width=0.3\textwidth]{$2}}
-  \subfloat[$3]{
-   \label{$3}
-    \includegraphics[width=0.3\textwidth]{$4}}
-  \subfloat[$5]{
+   \label{$2}
+    \includegraphics[width=0.3\textwidth]{$3}}
+  \subfloat[$4]{
    \label{$5}
     \includegraphics[width=0.3\textwidth]{$6}}
-		\caption{$7}
- \label{$8}
+  \subfloat[$7]{
+   \label{$8}
+    \includegraphics[width=0.3\textwidth]{$9}}
+		\caption{$10}
+ \label{$11}
 \end{figure}
 endsnippet
 
@@ -208,7 +209,7 @@ endsnippet
 context "math()"
 snippet tta "\theta" iA
 \theta
-endsnippet
+endsnippet        
 
 snippet beg "begin{} / end{}" bi
 \begin{$1}
@@ -229,7 +230,7 @@ snippet desc "Description" bi
 endsnippet
 
 snippet rec "Recordatorio" bi
-\begin{tcolorbox}[colback=White, colframe=Black, arc=0mm]
+\begin{tcolorbox}[colback=Black!4, colframe=White,arc=2mm]
 \begin{recordatorio}${1:[$2]}
 	${3:${VISUAL}}
 \end{recordatorio}
@@ -237,7 +238,7 @@ snippet rec "Recordatorio" bi
 endsnippet
 
 snippet lema "Lemma" bi
-\begin{tcolorbox}[colback=White, colframe=Black, arc=0mm]
+\begin{tcolorbox}[colback=Black!4, colframe=White,arc=2mm]
 \begin{lema}${1:[$2]}
 	${3:${VISUAL}}
 \end{lema}
@@ -245,7 +246,7 @@ snippet lema "Lemma" bi
 endsnippet
 
 snippet pre "Proposition" bi
-\begin{tcolorbox}[colback=White, colframe=Black, arc=0mm]
+\begin{tcolorbox}[colback=Black!4, colframe=White,arc=2mm]
 \begin{preposicion}${1:[$2]}
 	${0:${VISUAL}}
 \end{preposicion}
@@ -253,7 +254,7 @@ snippet pre "Proposition" bi
 endsnippet
 
 snippet teo "Theorem" bi
-\begin{tcolorbox}[colback=White,colframe=Black, arc=0mm]
+\begin{tcolorbox}[colback=Black!4, colframe=White,arc=2mm]
 \begin{teorema}${1:[$2]}
 	${0:${VISUAL}}
 \end{teorema}
@@ -261,7 +262,7 @@ snippet teo "Theorem" bi
 endsnippet
 
 snippet def "Definition" bi
-\begin{tcolorbox}[colback=White, colframe=Black, arc=0mm]
+\begin{tcolorbox}[colback=Black!4, colframe=White,arc=2mm]
 \begin{definicion}[$1]
 	${0:${VISUAL}}
 \end{definicion}
@@ -287,7 +288,7 @@ ${0:}
 endsnippet
 
 snippet dem "Prueba" bi
-\begin{tcolorbox}[colback=White, colframe=Black, arc=0mm]
+\begin{tcolorbox}[colback=Black!4, colframe=White,arc=2mm]
 \begin{demostracion}
 	${0:${VISUAL}} 
 \end{demostracion}
@@ -295,7 +296,7 @@ snippet dem "Prueba" bi
 endsnippet
 
 snippet nota "Note" bi
-\begin{tcolorbox}[colback=White, colframe=Black, arc=0mm]
+\begin{tcolorbox}[colback=Black!4, colframe=White,arc=2mm]
 \begin{nota}[$1]
 	${0:${VISUAL}}
 \end{nota}
@@ -309,7 +310,7 @@ snippet prob "Problem" bi
 endsnippet
 
 snippet coro "Corollary" bi
-\begin{tcolorbox}[colback=White, colframe=Black, arc=0mm]
+\begin{tcolorbox}[colback=Black!4, colframe=White,arc=2mm]
 \begin{nota}[$1]
 \begin{corolario}[$1]
 	${0:${VISUAL}}
@@ -344,7 +345,7 @@ snippet fig "Figure environment" bi
 endsnippet
 
 snippet tcolor "Caja" bi
-\begin{tcolorbox}[colback=White, colframe=Black, arc = 0mm${1:, title = "$2"}]
+\begin{tcolorbox}[colback=Black!3, colframe=Black!9, coltitle=Black, arc=2mm] 
 	${0:}
 \end{tcolorbox}
 endsnippet
@@ -403,17 +404,26 @@ endsnippet
 ########                                   
 
 context "math()"
-snippet ext "exists" iA
-\exists
+snippet EE "exists" iA
+\exist
 endsnippet
 
 context "math()"
-snippet nex "nexisit" iA
+snippet nEE "nexisit" iA
 \nexists
 endsnippet
 
+snippet notin "not in" iA
+\not\in
+endsnippet
+
 context "math()"
-snippet fal "forall" iA
+snippet floor "floor" iA
+\left\lfloor $1 \right\rfloor$0
+endsnippet
+
+context "math()"
+snippet fall "forall" iA
 \forall
 endsnippet
 
@@ -421,7 +431,7 @@ snippet cc "subset" w
 \subset 
 endsnippet
 
-snippet {} "set" w
+snippet sset "set" w
 \left\\{ $1 \right\\} $0
 endsnippet
 
@@ -493,11 +503,11 @@ snippet txt "Text" iA
 \text{${1:${VISUAL}}}$0
 endsnippet
 
-snippet rz "Square Root" wi
+snippet sq "Square Root" wi
 \sqrt{${1:${VISUAL}}}$0
 endsnippet
 
-snippet rzo "... Root" wi
+snippet sqo "... Root" wi
 \sqrt[$1]{${2:${VISUAL}}}$0
 endsnippet
 
@@ -509,9 +519,15 @@ snippet it "Italic" wi
 \textit{${1:${VISUAL}}}$0                                
 endsnippet
 
-
+priority 1
 snippet un "Underline" wi
 \underline{${1:${VISUAL}}}$0
+endsnippet
+
+priority 100
+context "math()"
+snippet "(\\?\w+)(,\.|)un" "(\hat)" riA
+\underline{`!p snip.rv=match.group(1)`}
 endsnippet
 
 snippet rm "Text" wi
@@ -909,7 +925,8 @@ snippet "hat" "hat" riA
 endsnippet
 
 priority 100
-snippet "([a-zA-Z])hat" "hat" riA
+context "math()"
+snippet "(\\?\w+)(,\.|)hat" "(\hat)" riA
 \hat{`!p snip.rv=match.group(1)`}
 endsnippet
 
@@ -968,15 +985,15 @@ snippet plt "\therefore" iA
 endsnippet
 
 snippet gat "gather*"
-\begin{gather*}
-	${1:${VISUAL}}$0
-\end{gather*}
+\begin{gather${1:*}}
+	${2:${VISUAL}}&${2:=}$0
+\end{gather$1}
 endsnippet
 
 snippet alig "aligned"
-\begin{align*}
-  &${1:${VISUAL}}$0 
-\end{align*}
+\begin{align${1:*}}
+  ${2:${VISUAL}} &${3:=}$0
+\end{align$1}
 endsnippet
 
 context "math()"
@@ -1083,7 +1100,7 @@ snippet ldo "\ldots" iA
 endsnippet
 
 context "math()"
-snippet cdo "\cdots" iA
+snippet cds "\cdots" iA
 \cdots
 endsnippet
 
@@ -1099,9 +1116,10 @@ endsnippet
 
 
 context "math()"
-snippet EE "\mathbb{E}" w
+snippet ee "\mathbb{E}" w
 \mathbb{E}
 endsnippet
+
 
 priority 100
 context "math()"
@@ -1133,7 +1151,7 @@ snippet inter "intertext" w
 endsnippet
 
 context "math()"
-snippet punto "\cdot" iA
+snippet · "\cdot" iA
 \cdot
 endsnippet
 
@@ -1224,6 +1242,12 @@ snippet 'xcolor (.*)' "Texto en color" wr
 \textcolor{${1:blue}}{`!p snip.rv = match.group(1)`}$0
 endsnippet
 
+context "math()"
+snippet 'color (.*)' "formulas en color en color" wr
+\color{${1:blue}}{`!p snip.rv = match.group(1)`}$0
+endsnippet
+
+
 snippet 'bf (.*)' "Texto en negritas" wr
 \bf{`!p snip.rv = match.group(1)`}$0
 endsnippet
@@ -1244,9 +1268,9 @@ snippet eql "equation label"
 endsnippet
 
 snippet eq "equation" 
-\begin{equation*}
-  ${1:${VISUAL}}$0 
-\end{equation*}
+\begin{equation${1:*}}
+  ${2:${VISUAL}}$0 
+\end{equation$1}
 endsnippet
 
 snippet eqsp "equation" 
@@ -1296,7 +1320,7 @@ endsnippet
 
 snippet \\ "&= \\" wi
 \\\
-&$1
+$1&$0
 endsnippet
 
 snippet verb "verbatim" w
@@ -1307,6 +1331,30 @@ endsnippet
 
 snippet sumn "suma de i hasta n" w
 \sum_{i=1}^n $0
+endsnippet
+
+context "math()"
+snippet parti "\partial" w
+\partial 
+endsnippet
+
+context "math()"
+snippet Omg "\Omega" iA
+\Omega
+endsnippet
+
+context "math()"
+snippet "(\\?\w+)(,\.|)Re" "(\operatorname{Re})" riA
+\operatorname{Re}\left(`!p snip.rv=match.group(1)` \right) 
+endsnippet 
+
+context "math()"
+snippet "(\\?\w+)(,\.|)Im" "(\operatorname{Im})" riA
+\operatorname{Im}\left(`!p snip.rv=match.group(1)` \right) 
+endsnippet
+
+snippet "" "comillas" w
+\`\`$1\`\` $0
 endsnippet
 
 
