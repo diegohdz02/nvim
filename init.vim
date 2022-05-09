@@ -12,6 +12,7 @@ set laststatus=2
 set virtualedit=all
 set spelllang=es
 set t_Co=256
+setlocal spell
 
 
 function! s:write_server_name() abort
@@ -35,7 +36,9 @@ Plug 'lervag/vimtex'
 Plug 'scrooloose/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
-Plug 'kovetskiy/sxhkd-vim'
+Plug 'kovetskiy/sxhkd-vim' 
+"colorscheme
+Plug 'dylanaraps/wal'
 
 "sintax"
 Plug 'sheerun/vim-polyglot'
@@ -52,6 +55,7 @@ call plug#end()
 "Theme"
 "colorscheme dracula
 colorscheme onehalfdark
+
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -74,6 +78,8 @@ let g:tex_conceal='abdmg'
 let g:vimtex_compiler_method = 'latexmk'
 let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
 let g:LatexBox_latexmk_options = '-pvc'
+let g:tex_indent_brace=0
+
 
 let mapleader=" "
 "nmap el atajo que vamos a utilizar funciona en modo normal"
@@ -99,4 +105,9 @@ let NERDTreeQuitOnOpen=1
 
 source /Users/diego/.config/nvim/plugged/coc.nvim/coc.config
 source /Users/diego/.config/nvim/plugged/Nvim-R/r.config
+
+inoremap ;; <Esc>      
+nmap <Leader>ul :UltiSnipsEdit <CR>
+
+
 
