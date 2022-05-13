@@ -194,7 +194,38 @@ snippet 3fig
 		\caption{$10}
  \label{$11}
 \end{figure}
+endsnippet   
+
+snippet 2figi   
+\begin{figure}[H]
+ \centering
+  \subfloat[$1]{
+   \label{$2}
+    \incfig[0.49]}
+  \subfloat[$4]{
+   \label{$5}
+    \incfig[0.49]{$6}}
+		\caption{$10}
+ \label{$11}
+\end{figure} 
 endsnippet
+
+snippet 3figi
+\begin{figure}[H]
+ \centering
+  \subfloat[$1]{
+   \label{$2}
+    \incfig[0.3]{$3}}
+  \subfloat[$4]{
+   \label{$5}
+    \incfig[0.3]{$6}}
+  \subfloat[$7]{
+   \label{$8}
+    \incfig[0.3]{$9}}
+		\caption{$10}
+ \label{$11}
+\end{figure}
+endsnippet  
 
 context "math()"
 snippet nabla "\nabla" iA
@@ -297,14 +328,14 @@ endsnippet
 
 snippet nota "Note" bi
 \begin{tcolorbox}[colback=Black!4, colframe=White,arc=2mm]
-\begin{nota}[$1]
+\begin{nota}${1:[$2]} 
 	${0:${VISUAL}}
 \end{nota}
 \end{tcolorbox}
 endsnippet
 
 snippet prob "Problem" bi
-\begin{problem}[$1]
+\begin{problem}${1:[$2]} 
 	${0:${VISUAL}}
 \end{problem}
 endsnippet
@@ -331,7 +362,7 @@ snippet notacion "Notation" bi
 endsnippet
 
 snippet conc "Conclusion" bi
-\begin{conclusion}[$1]
+\begin{conclusion}${1:[$2]} 
 	$0${VISUAL}
 \end{conclusion}
 endsnippet
@@ -424,7 +455,7 @@ endsnippet
 
 context "math()"
 snippet fall "forall" iA
-\forall
+\ \forall 
 endsnippet
 
 snippet cc "subset" w
@@ -471,6 +502,10 @@ snippet CC "C" w
 \mathbb{C}
 endsnippet
 
+snippet NN "N" w
+\mathbb{N}
+endsnippet
+
 snippet inmath "Inline Math" w
 \\(${1}\\) $0
 endsnippet
@@ -481,7 +516,7 @@ snippet dm "Display Math" w
 \]$0
 endsnippet
 
-snippet frac "Fraction" w
+snippet fc "Fraction" w
 \frac{$1}{$2}$0
 endsnippet
 
@@ -669,11 +704,11 @@ snippet lll "l" Aw
 \ell
 endsnippet
 
-snippet xx "cross" Aw
+snippet xx "cross"
 \times 
 endsnippet
 
-snippet '(?<!\\)(sin|cos|arccot|cot|csc|ln|log|exp|star|perp|tau|mu|xi|tan|sim|pm)' "ln" rw
+snippet '(?<!\\)(sin|cos|arccot|cot|csc|ln|log|exp|star|perp|tau|mu|xi|tan|sim|pm|chi|pi)' "ln" rw
 \\`!p snip.rv = match.group(1)`
 endsnippet
 
@@ -914,8 +949,8 @@ endsnippet
 
 context "math()"
 priority 100
-snippet "([a-zA-Z])bar" "bar" riA
-\overline{`!p snip.rv=match.group(1)`}
+snippet "(\\?\w+)(,\.|)bar" "(\bar)" riA
+\bar{`!p snip.rv=match.group(1)`}
 endsnippet
     
 
@@ -937,11 +972,6 @@ endsnippet
 context "math()"
 snippet ind "indices" w
 ${1:i} = 1,${2:2},\dots,${3:n}
-endsnippet
-
-context "math()"
-snippet pi "Pi" iA
-\pi
 endsnippet
 
 context "math()"
@@ -986,13 +1016,13 @@ endsnippet
 
 snippet gat "gather*"
 \begin{gather${1:*}}
-	${2:${VISUAL}}&${2:=}$0
+	$0
 \end{gather$1}
 endsnippet
 
 snippet alig "aligned"
 \begin{align${1:*}}
-  ${2:${VISUAL}} &${3:=}$0
+  ${2:${VISUAL}} &= $0
 \end{align$1}
 endsnippet
 
@@ -1114,6 +1144,11 @@ snippet ddts "\ddots" iA
 \ddots
 endsnippet
 
+context "math()"
+snippet abs "valor absoluto" iA
+\mid $1 \mid $0
+endsnippet
+
 
 context "math()"
 snippet ee "\mathbb{E}" w
@@ -1161,8 +1196,8 @@ snippet yy "&"
 endsnippet
 
 context "math()"
-snippet det "\operatorname{det}"
-\operatorname{det} 
+snippet det "\operatorname{det}" iw
+\operatorname{det}
 endsnippet
 
 context "math()"
@@ -1178,6 +1213,11 @@ endsnippet
 context "math()"
 snippet Var "\operatorname{Var}" iw
 \operatorname{Var}
+endsnippet
+
+context "math()"
+snippet Cov "\operatorname{Cov}" iw
+\operatorname{Cov}
 endsnippet
 
 context "math()"
@@ -1318,11 +1358,6 @@ snippet prop "\propto" w
 \propto
 endsnippet
 
-snippet \\ "&= \\" wi
-\\\
-$1&$0
-endsnippet
-
 snippet verb "verbatim" w
 \begin{verbatim}
 $0
@@ -1355,6 +1390,10 @@ endsnippet
 
 snippet "" "comillas" w
 \`\`$1\`\` $0
+endsnippet
+
+snippet cmv "cambio de variable/nota" w
+\quad \left( $1 \right) $0
 endsnippet
 
 
